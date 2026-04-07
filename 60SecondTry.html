@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>60 Second Encouragement</title>
+
+<style>
+    html {
+        scroll-behavior: smooth; /* ensures smooth scrolling */
+    }
+
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #3a0ca3, #7209b7, #b5179e, #f72585);
+        background-attachment: fixed;
+        color: #ffffff;
+    }
+
+    header {
+        position: fixed;
+        width: 100%;
+        top: 0;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(12px);
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        padding: 15px;
+        z-index: 1000;
+    }
+
+    header a {
+        text-decoration: none;
+        color: #ffffff;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+
+    header a:hover {
+        color: #ffd6f6;
+    }
+
+    section {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 40px 20px; /* reduced top padding so it sits more centered */
+        scroll-margin-top: 70px; /* offset for fixed header */
+    }
+
+    h1 {
+        font-size: 3em;
+        margin-bottom: 10px;
+        font-weight: 600;
+    }
+
+    p {
+        max-width: 600px;
+        font-size: 1.2em;
+        line-height: 1.6;
+        color: #f8eaff;
+    }
+
+    .btn {
+        margin-top: 20px;
+        padding: 12px 25px;
+        border: none;
+        border-radius: 30px;
+        background: linear-gradient(135deg, #ff4d8d, #c77dff);
+        color: white;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    }
+
+    .soft-card {
+        background: rgba(255,255,255,0.08);
+        padding: 30px;
+        border-radius: 20px;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .footer-line {
+        margin-top: 40px;
+        font-size: 1.1em;
+        opacity: 0.9;
+
+    }
+<style>
+
+    @media (max-width: 600px) {
+        header {
+            flex-direction: column;
+            gap: 10px;
+            padding: 10px;
+        }
+
+        h1 {
+            font-size: 2em;
+        }
+
+        p {
+            font-size: 1em;
+        }
+
+        .soft-card {
+            padding: 20px;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<header>
+    <a href="#home">Home</a>
+    <a href="#about">About Us</a>
+    <a href="#contact">Contact</a>
+    <a href="https://ko-fi.com/60secondencouragement" target="_blank">Donate</a>
+</header>
+
+<section id="home">
+    <div class="soft-card">
+        <h1>60 Second Encouragement</h1>
+        <p>A minute of peace in a loud world. You are welcome here.</p>
+        <div class="footer-line">You are loved and appreciated.</div>
+    </div>
+</section>
+
+<section id="about">
+    <div class="soft-card">
+        <h1>About</h1>
+        <p>This space exists to offer simple, honest encouragement for real-life situations.
+        No pressure. No expectations. Just a moment to breathe, feel seen, and remember that you matter.</p>
+    </div>
+</section>
+
+<section id="contact">
+    <div class="soft-card">
+        <h1>Contact</h1>
+        <p>If you ever want to reach out, share something on your mind, or just connect—you're welcome to.</p>
+        <a class="btn" href="mailto:60SecondEncouragement@gmail.com">Email Me</a>
+    </div>
+</section>
+
+<script>
+// Force smooth scrolling for all nav links (fixes jump issue)
+document.querySelectorAll('header a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        target.scrollIntoView({ behavior: 'smooth' });
+    });
+});
+</script>
+
+</body>
+</html>
