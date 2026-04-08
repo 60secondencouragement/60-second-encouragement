@@ -6,9 +6,7 @@
 <title>60 Second Encouragement</title>
 
 <style>
-    html {
-        scroll-behavior: smooth; /* ensures smooth scrolling */
-    }
+    html { scroll-behavior: smooth; }
 
     body {
         margin: 0;
@@ -36,12 +34,9 @@
         color: #ffffff;
         font-weight: 600;
         transition: all 0.3s ease;
-        cursor: pointer;
     }
 
-    header a:hover {
-        color: #ffd6f6;
-    }
+    header a:hover { color: #ffd6f6; }
 
     section {
         min-height: 100vh;
@@ -50,8 +45,8 @@
         justify-content: center;
         align-items: center;
         text-align: center;
-        padding: 40px 20px; /* reduced top padding so it sits more centered */
-        scroll-margin-top: 70px; /* offset for fixed header */
+        padding: 40px 20px;
+        scroll-margin-top: 70px;
     }
 
     h1 {
@@ -69,12 +64,12 @@
 
     .btn {
         margin-top: 20px;
-        padding: 12px 25px;
+        padding: 14px 30px;
         border: none;
         border-radius: 30px;
         background: linear-gradient(135deg, #ff4d8d, #c77dff);
         color: white;
-        font-size: 1em;
+        font-size: 1.1em;
         cursor: pointer;
         text-decoration: none;
         transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -98,28 +93,6 @@
         margin-top: 40px;
         font-size: 1.1em;
         opacity: 0.9;
-
-    }
-<style>
-
-    @media (max-width: 600px) {
-        header {
-            flex-direction: column;
-            gap: 10px;
-            padding: 10px;
-        }
-
-        h1 {
-            font-size: 2em;
-        }
-
-        p {
-            font-size: 1em;
-        }
-
-        .soft-card {
-            padding: 20px;
-        }
     }
 </style>
 </head>
@@ -137,6 +110,9 @@
     <div class="soft-card">
         <h1>60 Second Encouragement</h1>
         <p>A minute of peace in a loud world. You are welcome here.</p>
+
+        <button class="btn" onclick="playAudio()">🎧 60 Seconds of Relief</button>
+
         <div class="footer-line">You are loved and appreciated.</div>
     </div>
 </section>
@@ -153,12 +129,15 @@
     <div class="soft-card">
         <h1>Contact</h1>
         <p>If you ever want to reach out, share something on your mind, or just connect—you're welcome to.</p>
-        <a class="btn" href="mailto:60SecondEncouragement@gmail.com">Email Me</a>
+        <a class="btn" href="mailto:your@email.com">Email Me</a>
     </div>
 </section>
 
+<!-- AUDIO FILE -->
+<audio id="calmAudio" src="calm_audio2.m4a"></audio>
+
 <script>
-// Force smooth scrolling for all nav links (fixes jump issue)
+// smooth scroll fix
 document.querySelectorAll('header a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
@@ -166,6 +145,36 @@ document.querySelectorAll('header a[href^="#"]').forEach(anchor => {
         target.scrollIntoView({ behavior: 'smooth' });
     });
 });
+
+// play audio for 60 seconds
+function playAudio() {
+    const audio = document.getElementById("calmAudio");
+
+    audio.currentTime = 0;
+    audio.volume = 0;
+    audio.play();
+
+    // fade in
+    let fade = setInterval(() => {
+        if (audio.volume < 0.9) {
+            audio.volume += 0.05;
+        } else {
+            clearInterval(fade);
+        }
+    }, 200);
+
+    // stop after 60 seconds
+    setTimeout(() => {
+        let fadeOut = setInterval(() => {
+            if (audio.volume > 0.05) {
+                audio.volume -= 0.05;
+            } else {
+                clearInterval(fadeOut);
+                audio.pause();
+            }
+        }, 200);
+    }, 60000);
+}
 </script>
 
 </body>
